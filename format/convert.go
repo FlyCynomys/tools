@@ -3,8 +3,6 @@ package format
 import (
 	"strings"
 
-	"fmt"
-
 	"github.com/mozillazg/go-pinyin"
 )
 
@@ -24,7 +22,6 @@ func LittleEndianOrBigEndian() bool {
 	var value uint32
 	value = 0x12345678
 	bytevalue := int8(value)
-	fmt.Printf("value : %d byte : %b uint8 %d ", value, bytevalue, bytevalue)
 	if bytevalue == 0x12 {
 		return false //big
 	}
