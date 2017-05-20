@@ -1,6 +1,7 @@
 package format
 
 import (
+	"encoding/binary"
 	"strconv"
 	"time"
 )
@@ -50,4 +51,14 @@ func FormatTimeToUnix(timepoint string) int64 {
 		return -1
 	}
 	return ti.Unix()
+}
+
+func BytesToUint64(src []byte) uint64 {
+	return binary.BigEndian.Uint64(src)
+}
+
+func Uint64ToBytes(u uint64) []byte {
+	buf := make([]byte, 8)
+	binary.BigEndian.PutUint64(buf, u)
+	return buf
 }
