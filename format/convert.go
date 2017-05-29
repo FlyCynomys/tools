@@ -27,3 +27,12 @@ func LittleEndianOrBigEndian() bool {
 	}
 	return true //little
 }
+
+func Reverse(src string) string {
+	var temp = make([]byte, len(src), len(src))
+	length := len(src) - 1
+	for index, value := range src {
+		temp[length-index] = byte(value)
+	}
+	return string(temp)
+}
