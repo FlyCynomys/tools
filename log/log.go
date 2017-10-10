@@ -84,33 +84,33 @@ func Info(v ...interface{}) {
 	funcName, filename, line, _ := runtime.Caller(1)
 	mu.Lock()
 	defer mu.Unlock()
-	fmt.Fprintf(OutPut, "%s %s [Info] %s [%d]: %v", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
+	fmt.Fprintf(OutPut, "%s %s [Info] %s [%d]: %v \n", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
 }
 
 func Debug(v ...interface{}) {
 	funcName, filename, line, _ := runtime.Caller(1)
 	mu.Lock()
 	defer mu.Unlock()
-	fmt.Fprintf(OutPut, "%s %s [Debug] %s [%d]: %v", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
+	fmt.Fprintf(OutPut, "%s %s [Debug] %s [%d]: %v \n", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
 }
 
 func Warn(v ...interface{}) {
 	funcName, filename, line, _ := runtime.Caller(1)
 	mu.Lock()
 	defer mu.Unlock()
-	fmt.Fprintf(OutPut, "%s %s [Warning] %s [%d]: %v", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
+	fmt.Fprintf(OutPut, "%s %s [Warning] %s [%d]: %v \n", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
 }
 
 func Critical(v ...interface{}) {
 	funcName, filename, line, _ := runtime.Caller(1)
 	mu.Lock()
 	defer mu.Unlock()
-	fmt.Fprintf(OutPut, "%s %s [Critic] %s [%d]: %v", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
+	fmt.Fprintf(OutPut, "%s %s [Critic] %s [%d]: %v \n", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
 }
 
 func Error(v ...interface{}) {
 	funcName, filename, line, _ := runtime.Caller(1)
-	fmt.Fprintf(OutPut, "%s %s [Error] %s [%d]: %v", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
+	fmt.Fprintf(OutPut, "%s %s [Error] %s [%d]: %v \n", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line, v)
 }
 
 func TraceAll() {
@@ -121,6 +121,6 @@ func TraceAll() {
 		if !ok {
 			break
 		}
-		fmt.Fprintf(OutPut, "%s %s [Error] %s [%d]: %v", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line)
+		fmt.Fprintf(OutPut, "%s %s [Error] %s [%d]: %v \n", filename, time.Now().String(), runtime.FuncForPC(funcName).Name(), line)
 	}
 }
